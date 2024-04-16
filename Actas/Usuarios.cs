@@ -29,9 +29,8 @@ namespace Actas
             {
                 cbxRolUsuarios.Items.Add(carga["id_roles"].ToString());
             }
-            conexion.Close();
-        }
-
+            carga.Close();
+ 
             OracleCommand mostrarUsuarios = new OracleCommand("mostrar_usuarios", conexion);
             mostrarUsuarios.CommandType = CommandType.StoredProcedure;
             mostrarUsuarios.Parameters.Add("mostrarU", OracleType.Cursor).Direction = ParameterDirection.Output;
@@ -48,6 +47,12 @@ namespace Actas
             txtCorreoUsu.Text = "";
             cbxEstatusUs.Text = "";
             conexion.Close();
+
+        }
+
+        private void btnMostrarUsuarios_Click(object sender, EventArgs e)
+        {
+            
         }
 
         private void btnCrearUsuarios_Click(object sender, EventArgs e)
