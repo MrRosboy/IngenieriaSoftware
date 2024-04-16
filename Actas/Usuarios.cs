@@ -32,9 +32,6 @@ namespace Actas
             conexion.Close();
         }
 
-        private void btnMostrarUsuarios_Click(object sender, EventArgs e)
-        {
-            conexion.Open();
             OracleCommand mostrarUsuarios = new OracleCommand("mostrar_usuarios", conexion);
             mostrarUsuarios.CommandType = CommandType.StoredProcedure;
             mostrarUsuarios.Parameters.Add("mostrarU", OracleType.Cursor).Direction = ParameterDirection.Output;
