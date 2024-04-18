@@ -146,6 +146,7 @@
             this.cbxDescRoles.Name = "cbxDescRoles";
             this.cbxDescRoles.Size = new System.Drawing.Size(160, 24);
             this.cbxDescRoles.TabIndex = 15;
+            this.cbxDescRoles.SelectedIndexChanged += new System.EventHandler(this.cbxDescRoles_SelectedIndexChanged);
             // 
             // Roles
             // 

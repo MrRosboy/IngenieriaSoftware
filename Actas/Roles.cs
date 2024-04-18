@@ -108,5 +108,10 @@ namespace Actas
            conexion.Close ();
 
         }
+
+        private void cbxDescRoles_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
