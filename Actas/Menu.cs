@@ -33,5 +33,11 @@ namespace Actas
             Usuarios interfazUsuarios = new Usuarios();
             interfazUsuarios.Show();
         }
+
+        private void btnProv_Click(object sender, EventArgs e)
+        {
+            Proveedores2 intProv= new Proveedores2();
+            intProv.Show();
+        }
     }
 }
