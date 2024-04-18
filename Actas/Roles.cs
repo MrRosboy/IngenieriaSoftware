@@ -30,16 +30,27 @@ namespace Actas
         {
             try
             {
-                conexion.Open();
-                OracleCommand comandoCrear = new OracleCommand("insertar_roles", conexion);   
-                comandoCrear.CommandType = System.Data.CommandType.StoredProcedure;
-                comandoCrear.Parameters.Add("descripcion", OracleType.VarChar).Value = cbxDescRoles.Text;
-                comandoCrear.Parameters.Add("estatus", OracleType.VarChar).Value = cbxEstRoles.Text;
-                comandoCrear.ExecuteNonQuery();
-                MessageBox.Show("Rol Creado");
-                llenarDataRoles();
+                if (!cbxDescRoles.Items.Contains(cbxDescRoles.Text))
+                {
+
+                    conexion.Open();
+                    OracleCommand comandoCrear = new OracleCommand("insertar_roles", conexion);
+                    comandoCrear.CommandType = System.Data.CommandType.StoredProcedure;
+                    comandoCrear.Parameters.Add("descripcion", OracleType.VarChar).Value = cbxDescRoles.Text;
+                    comandoCrear.Parameters.Add("estatus", OracleType.VarChar).Value = cbxEstRoles.Text;
+                    comandoCrear.ExecuteNonQuery();
+                    MessageBox.Show("Rol Creado");
+                    llenarDataRoles();
+                    cbxDescRoles.Items.Add(cbxDescRoles.Text);
+                }
+
+
+                else
+                {
+                    MessageBox.Show("El rol ya existe.");
+                }
             }
-            catch (Exception) 
+            catch (Exception)
             {
                 MessageBox.Show("Algo fallo");
             }
