@@ -33,5 +33,12 @@ namespace Actas
             Usuarios interfazUsuarios = new Usuarios();
             interfazUsuarios.Show();
         }
+
+        private void btnProductos_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Productos producto = new Productos();
+            producto.Show();
+        }
     }
 }

@@ -96,6 +96,7 @@
             this.btnProductos.Size = new System.Drawing.Size(146, 136);
             this.btnProductos.TabIndex = 5;
             this.btnProductos.UseVisualStyleBackColor = true;
+            this.btnProductos.Click += new System.EventHandler(this.btnProductos_Click);
             // 
             // btnCotizaciones
             // 

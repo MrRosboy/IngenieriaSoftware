@@ -22,7 +22,7 @@ namespace Actas
         private void btnLogin_Click(object sender, EventArgs e) //Eventos que suceden al hacer click en el botón "Login"
         {
             conexion.Open(); 
-            OracleCommand comando = new OracleCommand("SELECT * FROM personas WHERE usuario = :usuario AND contra = :contra", conexion);
+            OracleCommand comando = new OracleCommand("SELECT * FROM USUARIOS WHERE NOMBRE = :usuario AND contra = :contra", conexion);
 
             comando.Parameters.AddWithValue(":usuario", txtUsuario.Text);
             comando.Parameters.AddWithValue(":contra", txtContraseña.Text);

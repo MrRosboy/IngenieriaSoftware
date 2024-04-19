@@ -15,6 +15,7 @@ namespace Actas
 
     {
         OracleConnection conexion = new OracleConnection("DATA SOURCE = xe;PASSWORD=admin;USER ID=admin;");
+        //CAMBIO 
         public Usuarios()
         {
             InitializeComponent();
