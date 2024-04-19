@@ -132,9 +132,12 @@ namespace Actas
             // Verifica si los campos están llenos y habilita o deshabilita los botones en consecuencia
             btnCrearRoles.Enabled = CamposEstanLlenos();
             btnActuRoles.Enabled = CamposEstanLlenos();
-            btnEliminarRoles.Enabled = CamposEstanLlenos();
+            btnEliminarRoles.Enabled = CampoEstanLlenosEliminar();
         }
-
+        private bool CampoEstanLlenosEliminar()
+        {
+            return !string.IsNullOrEmpty(cbxDescRoles.Text);
+        }
         private void btnCerrarRoles_Click(object sender, EventArgs e)
         {
            this.Close();    
