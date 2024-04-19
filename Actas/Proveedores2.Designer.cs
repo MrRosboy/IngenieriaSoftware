@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Proveedores2));
             this.btnCrearProv = new System.Windows.Forms.Button();
             this.btnActProv = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -41,7 +42,10 @@
             this.cbxEst = new System.Windows.Forms.ComboBox();
             this.cbxNom = new System.Windows.Forms.ComboBox();
             this.dgvProv = new System.Windows.Forms.DataGridView();
+            this.btnELimProv = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProv)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCrearProv
@@ -62,12 +66,13 @@
             this.btnActProv.BackColor = System.Drawing.Color.White;
             this.btnActProv.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnActProv.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnActProv.Location = new System.Drawing.Point(163, 350);
+            this.btnActProv.Location = new System.Drawing.Point(166, 350);
             this.btnActProv.Name = "btnActProv";
             this.btnActProv.Size = new System.Drawing.Size(130, 37);
             this.btnActProv.TabIndex = 1;
             this.btnActProv.Text = "Actualizar";
             this.btnActProv.UseVisualStyleBackColor = false;
+            this.btnActProv.Click += new System.EventHandler(this.btnActProv_Click);
             // 
             // label1
             // 
@@ -125,30 +130,38 @@
             // 
             this.txtDir.Location = new System.Drawing.Point(136, 105);
             this.txtDir.Name = "txtDir";
-            this.txtDir.Size = new System.Drawing.Size(100, 22);
+            this.txtDir.Size = new System.Drawing.Size(121, 22);
             this.txtDir.TabIndex = 8;
+            this.txtDir.TextChanged += new System.EventHandler(this.ComboBox_TextChangedP);
             // 
             // txtTel
             // 
             this.txtTel.Location = new System.Drawing.Point(136, 151);
             this.txtTel.Name = "txtTel";
-            this.txtTel.Size = new System.Drawing.Size(100, 22);
+            this.txtTel.Size = new System.Drawing.Size(121, 22);
             this.txtTel.TabIndex = 9;
+            this.txtTel.TextChanged += new System.EventHandler(this.ComboBox_TextChangedP);
             // 
             // txtDes
             // 
             this.txtDes.Location = new System.Drawing.Point(136, 196);
             this.txtDes.Name = "txtDes";
-            this.txtDes.Size = new System.Drawing.Size(100, 22);
+            this.txtDes.Size = new System.Drawing.Size(121, 22);
             this.txtDes.TabIndex = 10;
+            this.txtDes.TextChanged += new System.EventHandler(this.ComboBox_TextChangedP);
             // 
             // cbxEst
             // 
             this.cbxEst.FormattingEnabled = true;
+            this.cbxEst.Items.AddRange(new object[] {
+            "ACTIVO",
+            "INACTIVO"});
             this.cbxEst.Location = new System.Drawing.Point(136, 233);
             this.cbxEst.Name = "cbxEst";
             this.cbxEst.Size = new System.Drawing.Size(121, 24);
             this.cbxEst.TabIndex = 11;
+            this.cbxEst.SelectedIndexChanged += new System.EventHandler(this.cbxEst_SelectedIndexChanged);
+            this.cbxEst.TextChanged += new System.EventHandler(this.ComboBox_TextChangedP);
             // 
             // cbxNom
             // 
@@ -157,24 +170,51 @@
             this.cbxNom.Name = "cbxNom";
             this.cbxNom.Size = new System.Drawing.Size(121, 24);
             this.cbxNom.TabIndex = 12;
+            this.cbxNom.TextChanged += new System.EventHandler(this.ComboBox_TextChangedP);
             // 
             // dgvProv
             // 
             this.dgvProv.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dgvProv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProv.Location = new System.Drawing.Point(371, 62);
+            this.dgvProv.Location = new System.Drawing.Point(298, 50);
             this.dgvProv.Name = "dgvProv";
             this.dgvProv.RowHeadersWidth = 51;
             this.dgvProv.RowTemplate.Height = 24;
-            this.dgvProv.Size = new System.Drawing.Size(366, 220);
+            this.dgvProv.Size = new System.Drawing.Size(788, 227);
             this.dgvProv.TabIndex = 13;
+            // 
+            // btnELimProv
+            // 
+            this.btnELimProv.BackColor = System.Drawing.Color.White;
+            this.btnELimProv.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnELimProv.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnELimProv.Location = new System.Drawing.Point(314, 350);
+            this.btnELimProv.Name = "btnELimProv";
+            this.btnELimProv.Size = new System.Drawing.Size(130, 37);
+            this.btnELimProv.TabIndex = 14;
+            this.btnELimProv.Text = "Eliminar ";
+            this.btnELimProv.UseVisualStyleBackColor = false;
+            this.btnELimProv.Click += new System.EventHandler(this.btnELimProv_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Location = new System.Drawing.Point(929, 292);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(222, 268);
+            this.pictureBox1.TabIndex = 15;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // Proveedores2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1126, 480);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.btnELimProv);
             this.Controls.Add(this.dgvProv);
             this.Controls.Add(this.cbxNom);
             this.Controls.Add(this.cbxEst);
@@ -192,6 +232,7 @@
             this.Text = "Proveedores2";
             this.Load += new System.EventHandler(this.Proveedores2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProv)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -212,5 +253,7 @@
         private System.Windows.Forms.ComboBox cbxEst;
         private System.Windows.Forms.ComboBox cbxNom;
         private System.Windows.Forms.DataGridView dgvProv;
+        private System.Windows.Forms.Button btnELimProv;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

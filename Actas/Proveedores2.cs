@@ -43,7 +43,7 @@ namespace Actas
 
             btnCrearProv.Enabled = false;
             btnActProv.Enabled = false;
-            //btnEliminarRoles.Enabled = false;
+            btnELimProv.Enabled = false;
 
             llenarDataProv();
 
@@ -55,7 +55,7 @@ namespace Actas
             try
             {
                     conexion.Open();
-                OracleCommand comandoCrear = new OracleCommand("insertar_proveedores", conexion);
+                OracleCommand comandoCrear = new OracleCommand("insertar_prov", conexion);
                 comandoCrear.CommandType = System.Data.CommandType.StoredProcedure;
                 comandoCrear.Parameters.Add("nombre", OracleType.VarChar).Value = cbxNom.Text;
                 comandoCrear.Parameters.Add("direccion", OracleType.VarChar).Value = txtDir.Text;
@@ -63,7 +63,7 @@ namespace Actas
                 comandoCrear.Parameters.Add("descripcion", OracleType.VarChar).Value = txtDes.Text;
                 comandoCrear.Parameters.Add("estatus", OracleType.VarChar).Value = cbxEst.Text;
                 comandoCrear.ExecuteNonQuery();
-                MessageBox.Show("Rol Creado");
+                MessageBox.Show("Proveedor Creado");
                 llenarDataProv();
             }
             catch (Exception)
@@ -79,12 +79,12 @@ namespace Actas
         }
 
         // Evento TextChanged para ComboBox y TextBox
-        private void ComboBox_TextChanged(object sender, EventArgs e)
+        private void ComboBox_TextChangedP(object sender, EventArgs e)
         {
             // Verifica si los campos están llenos y habilita o deshabilita los botones en consecuencia
             btnCrearProv.Enabled = CamposEstanLlenos();
             btnActProv.Enabled = CamposEstanLlenos();
-           // btnEliminarRoles.Enabled = CamposEstanLlenos();
+            btnELimProv.Enabled = CampoEstanLlenosEliminar();
         }
 
         private void llenarDataProv()
@@ -108,8 +108,67 @@ namespace Actas
 
         }
 
+        private bool CampoEstanLlenosEliminar()
+        {
+            return !string.IsNullOrEmpty(cbxNom.Text);
+        }
+        private void btnELimProv_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                conexion.Open();
+                OracleCommand comandoElim = new OracleCommand("eliminar_prov", conexion);
+                comandoElim.CommandType = System.Data.CommandType.StoredProcedure;
+                comandoElim.Parameters.Add("nombre", OracleType.VarChar).Value = cbxNom.Text;
+                comandoElim.ExecuteNonQuery();
+                MessageBox.Show("Proveedor Eliminado");
+                llenarDataProv();
 
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Algo Fallo");
 
+            }
+            conexion.Close();
+
+        }
+
+        private void btnActProv_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                conexion.Open();
+                OracleCommand comandoAct = new OracleCommand("actualizar_prov", conexion);
+                comandoAct.CommandType = System.Data.CommandType.StoredProcedure;
+                comandoAct.Parameters.Add("nombre", OracleType.VarChar).Value = cbxNom.Text;
+                comandoAct.Parameters.Add("direccion", OracleType.VarChar).Value = txtDir.Text;
+                comandoAct.Parameters.Add("telefono", OracleType.Number).Value = Convert.ToInt32(txtTel.Text);
+                comandoAct.Parameters.Add("descripcion", OracleType.VarChar).Value = txtDes.Text;
+                comandoAct.Parameters.Add("estatus", OracleType.VarChar).Value = cbxEst.Text;
+                comandoAct.ExecuteNonQuery();
+                MessageBox.Show("Proveedor Actualizado");
+                llenarDataProv();
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Algo Fallo");
+            }
+            conexion.Close();
+
+        }
+
+        private void cbxEst_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
+
 }
 
