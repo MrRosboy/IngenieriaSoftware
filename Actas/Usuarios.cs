@@ -31,6 +31,8 @@ namespace Actas
             {
                 cbxRolUsuarios.Items.Add(carga["id_roles"].ToString());
             }
+
+
             OracleDataReader carga2 = cargarcbxnom.ExecuteReader();
             while (carga2.Read())
             {
@@ -85,6 +87,7 @@ namespace Actas
         }
         private void LlenarDatosUsuarios()
         {
+
             OracleCommand mostrarUsuarios = new OracleCommand("mostrar_usuarios", conexion);
             mostrarUsuarios.CommandType = CommandType.StoredProcedure;
             mostrarUsuarios.Parameters.Add("mostrarU", OracleType.Cursor).Direction = ParameterDirection.Output;
@@ -100,7 +103,7 @@ namespace Actas
             cbxRolUsuarios.Text = "";
             txtCorreoUsu.Text = "";
             cbxEstatusUs.Text = "";
-          
+
         }
 
         private bool CamposEstanLlenos()

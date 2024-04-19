@@ -52,7 +52,7 @@
             // 
             this.btnEliminarUsuarios.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEliminarUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminarUsuarios.Location = new System.Drawing.Point(349, 386);
+            this.btnEliminarUsuarios.Location = new System.Drawing.Point(350, 514);
             this.btnEliminarUsuarios.Name = "btnEliminarUsuarios";
             this.btnEliminarUsuarios.Size = new System.Drawing.Size(138, 33);
             this.btnEliminarUsuarios.TabIndex = 15;
@@ -64,7 +64,7 @@
             // 
             this.btnActuUsuarios.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnActuUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnActuUsuarios.Location = new System.Drawing.Point(180, 386);
+            this.btnActuUsuarios.Location = new System.Drawing.Point(181, 514);
             this.btnActuUsuarios.Name = "btnActuUsuarios";
             this.btnActuUsuarios.Size = new System.Drawing.Size(138, 33);
             this.btnActuUsuarios.TabIndex = 14;
@@ -76,7 +76,7 @@
             // 
             this.btnCrearUsuarios.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCrearUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCrearUsuarios.Location = new System.Drawing.Point(12, 386);
+            this.btnCrearUsuarios.Location = new System.Drawing.Point(13, 514);
             this.btnCrearUsuarios.Name = "btnCrearUsuarios";
             this.btnCrearUsuarios.Size = new System.Drawing.Size(138, 33);
             this.btnCrearUsuarios.TabIndex = 13;
@@ -97,7 +97,7 @@
             // cbxRolUsuarios
             // 
             this.cbxRolUsuarios.FormattingEnabled = true;
-            this.cbxRolUsuarios.Location = new System.Drawing.Point(133, 156);
+            this.cbxRolUsuarios.Location = new System.Drawing.Point(121, 172);
             this.cbxRolUsuarios.Name = "cbxRolUsuarios";
             this.cbxRolUsuarios.Size = new System.Drawing.Size(146, 24);
             this.cbxRolUsuarios.TabIndex = 18;
@@ -105,7 +105,7 @@
             // 
             // txtCorreoUsu
             // 
-            this.txtCorreoUsu.Location = new System.Drawing.Point(133, 113);
+            this.txtCorreoUsu.Location = new System.Drawing.Point(121, 129);
             this.txtCorreoUsu.Name = "txtCorreoUsu";
             this.txtCorreoUsu.Size = new System.Drawing.Size(146, 22);
             this.txtCorreoUsu.TabIndex = 21;
@@ -113,7 +113,7 @@
             // 
             // txtContUsu
             // 
-            this.txtContUsu.Location = new System.Drawing.Point(133, 68);
+            this.txtContUsu.Location = new System.Drawing.Point(121, 84);
             this.txtContUsu.Name = "txtContUsu";
             this.txtContUsu.Size = new System.Drawing.Size(146, 22);
             this.txtContUsu.TabIndex = 22;
@@ -123,40 +123,40 @@
             // lblDescRoles
             // 
             this.lblDescRoles.AutoSize = true;
-            this.lblDescRoles.Font = new System.Drawing.Font("Arial Narrow", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescRoles.Location = new System.Drawing.Point(33, 27);
+            this.lblDescRoles.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescRoles.Location = new System.Drawing.Point(21, 43);
             this.lblDescRoles.Name = "lblDescRoles";
-            this.lblDescRoles.Size = new System.Drawing.Size(65, 22);
+            this.lblDescRoles.Size = new System.Drawing.Size(71, 24);
             this.lblDescRoles.TabIndex = 26;
             this.lblDescRoles.Text = "Nombre";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial Narrow", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(33, 113);
+            this.label1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(21, 129);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 22);
+            this.label1.Size = new System.Drawing.Size(63, 24);
             this.label1.TabIndex = 27;
             this.label1.Text = "Correo";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial Narrow", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(33, 158);
+            this.label2.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(21, 174);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(34, 22);
+            this.label2.Size = new System.Drawing.Size(36, 24);
             this.label2.TabIndex = 28;
             this.label2.Text = "Rol";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial Narrow", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(33, 68);
+            this.label3.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(21, 84);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(91, 22);
+            this.label3.Size = new System.Drawing.Size(99, 24);
             this.label3.TabIndex = 29;
             this.label3.Text = "Contraseña";
             // 
@@ -167,7 +167,7 @@
             this.dgvUsuarios.Location = new System.Drawing.Point(287, 12);
             this.dgvUsuarios.Name = "dgvUsuarios";
             this.dgvUsuarios.RowHeadersWidth = 51;
-            this.dgvUsuarios.RowTemplate.Height = 24;
+            this.dgvUsuarios.RowTemplate.Height = 24;      
             this.dgvUsuarios.Size = new System.Drawing.Size(708, 257);
             this.dgvUsuarios.TabIndex = 30;
             // 
@@ -177,7 +177,7 @@
             this.cbxEstatusUs.Items.AddRange(new object[] {
             "Y",
             "N"});
-            this.cbxEstatusUs.Location = new System.Drawing.Point(133, 197);
+            this.cbxEstatusUs.Location = new System.Drawing.Point(121, 213);
             this.cbxEstatusUs.Name = "cbxEstatusUs";
             this.cbxEstatusUs.Size = new System.Drawing.Size(146, 24);
             this.cbxEstatusUs.TabIndex = 31;
@@ -186,10 +186,10 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial Narrow", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(33, 195);
+            this.label4.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(21, 211);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(63, 22);
+            this.label4.Size = new System.Drawing.Size(68, 24);
             this.label4.TabIndex = 32;
             this.label4.Text = "Estatus";
             // 
@@ -206,7 +206,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.White;            
             this.ClientSize = new System.Drawing.Size(1007, 450);
             this.Controls.Add(this.cbxNomUsu);
             this.Controls.Add(this.label4);

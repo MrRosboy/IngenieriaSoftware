@@ -112,6 +112,7 @@
             this.btnProv.Size = new System.Drawing.Size(146, 136);
             this.btnProv.TabIndex = 7;
             this.btnProv.UseVisualStyleBackColor = true;
+            this.btnProv.Click += new System.EventHandler(this.btnProv_Click);
             // 
             // btnUsuarios
             // 

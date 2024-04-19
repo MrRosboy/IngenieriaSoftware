@@ -54,6 +54,12 @@
     <Compile Include="Menu.Designer.cs">
       <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Proveedores2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Proveedores2.Designer.cs">
+      <DependentUpon>Proveedores2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Prueba.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +101,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Proveedores2.resx">
+      <DependentUpon>Proveedores2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Prueba.resx">
       <DependentUpon>Prueba.cs</DependentUpon>
     </EmbeddedResource>
