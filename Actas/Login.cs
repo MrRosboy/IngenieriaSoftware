@@ -18,7 +18,7 @@ namespace Actas
             InitializeComponent();
         }
 
-        OracleConnection conexion = new OracleConnection("DATA SOURCE = xe;PASSWORD=admin;USER ID=admin;");
+        OracleConnection conexion = new OracleConnection("DATA SOURCE = xe;PASSWORD=soft;USER ID=soft;");
         private void btnLogin_Click(object sender, EventArgs e) //Eventos que suceden al hacer click en el botón "Login"
         {
             conexion.Open(); 

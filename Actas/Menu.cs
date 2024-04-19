@@ -34,11 +34,18 @@ namespace Actas
             interfazUsuarios.Show();
         }
 
+
         private void btnProductos_Click(object sender, EventArgs e)
         {
             this.Hide();
             Productos producto = new Productos();
             producto.Show();
+
+        private void btnProv_Click(object sender, EventArgs e)
+        {
+            Proveedores2 intProv= new Proveedores2();
+            intProv.Show();
+
         }
     }
 }
