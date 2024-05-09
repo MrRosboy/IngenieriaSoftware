@@ -26,12 +26,21 @@ namespace Actas
         {
             Roles interfazRoles = new Roles();   
             interfazRoles.Show();
+            this.Close();
         }
 
         private void btnUsuarios_Click(object sender, EventArgs e)
         {
             Usuarios interfazUsuarios = new Usuarios();
             interfazUsuarios.Show();
+            this.Close();
+        }
+
+        private void btnComPro_Click(object sender, EventArgs e)
+        {
+            Compra_Productos interfazCompra = new Compra_Productos();
+            interfazCompra.Show();
+            this.Close();
         }
     }
 }

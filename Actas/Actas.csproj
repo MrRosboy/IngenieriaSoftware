@@ -48,6 +48,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BotonesCompra.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BotonesCompra.Designer.cs">
+      <DependentUpon>BotonesCompra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compra Productos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compra Productos.Designer.cs">
+      <DependentUpon>Compra Productos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DbCompraPro.cs" />
     <Compile Include="Menu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +93,12 @@
     <Compile Include="Usuarios.Designer.cs">
       <DependentUpon>Usuarios.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="BotonesCompra.resx">
+      <DependentUpon>BotonesCompra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compra Productos.resx">
+      <DependentUpon>Compra Productos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>

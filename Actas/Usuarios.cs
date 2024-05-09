@@ -23,13 +23,13 @@ namespace Actas
         private void Usuarios_Load(object sender, EventArgs e)
         {
             conexion.Open();
-            OracleCommand cargarcbxrol = new OracleCommand("select id_roles from roles", conexion);
+            OracleCommand cargarcbxrol = new OracleCommand("select id_roles, descripcion from roles", conexion);
             OracleCommand cargarcbxnom = new OracleCommand("select nombre from usuarios", conexion);
 
             OracleDataReader carga = cargarcbxrol.ExecuteReader();
             while (carga.Read())
             {
-                cbxRolUsuarios.Items.Add(carga["id_roles"].ToString());
+               cbxRolUsuarios.Items.Add(carga["descripcion"].ToString());
             }
             OracleDataReader carga2 = cargarcbxnom.ExecuteReader();
             while (carga2.Read())
@@ -42,6 +42,9 @@ namespace Actas
             btnCrearUsuarios.Enabled = false;
             btnActuUsuarios.Enabled = false;
             btnEliminarUsuarios.Enabled = false;
+
+            cbxEstatusUs.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbxRolUsuarios.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private void btnMostrarUsuarios_Click(object sender, EventArgs e)
@@ -58,12 +61,13 @@ namespace Actas
                 {
                     conexion.Open();
                     OracleCommand comandoCrear = new OracleCommand("insertar_usuarios", conexion);
+                    string estatus = (cbxEstatusUs.Text == "ACTIVO") ? "A" : "I";
                     comandoCrear.CommandType = System.Data.CommandType.StoredProcedure;
                     comandoCrear.Parameters.Add("nombre", OracleType.VarChar).Value = cbxNomUsu.Text;
                     comandoCrear.Parameters.Add("contra", OracleType.VarChar).Value = txtContUsu.Text;
                     comandoCrear.Parameters.Add("correo", OracleType.VarChar).Value = txtCorreoUsu.Text;
-                    comandoCrear.Parameters.Add("id_roles", OracleType.Number).Value = Convert.ToInt32(cbxRolUsuarios.Text);
-                    comandoCrear.Parameters.Add("estatus", OracleType.VarChar).Value = cbxEstatusUs.Text;
+                    comandoCrear.Parameters.Add("id_roles", OracleType.Number).Value = ObtenerIdRolSeleccionado();
+                    comandoCrear.Parameters.Add("estatus", OracleType.VarChar).Value = estatus;
                     comandoCrear.ExecuteNonQuery();
                     MessageBox.Show("Usuario Creado");
                     LlenarDatosUsuarios();
@@ -127,11 +131,11 @@ namespace Actas
             try
             {
                 conexion.Open();
-                OracleCommand comandoElim = new OracleCommand("eliminar_usu", conexion);
+                OracleCommand comandoElim = new OracleCommand("eliminar_usu2", conexion);
                 comandoElim.CommandType = System.Data.CommandType.StoredProcedure;
                 comandoElim.Parameters.Add("nombre", OracleType.VarChar).Value = cbxNomUsu.Text;
                 comandoElim.ExecuteNonQuery();
-                MessageBox.Show("Usuario Eliminado");
+                MessageBox.Show("Usuario Eliminado o desactivado segun corresponda");
                 LlenarDatosUsuarios();
                 cbxNomUsu.Items.Add(cbxNomUsu.Text);
 
@@ -149,32 +153,84 @@ namespace Actas
         {
                 try
                 {
-                if (!cbxNomUsu.Items.Contains(cbxNomUsu.Text))
-                {
+                
+                
                     conexion.Open();
                     OracleCommand comandoAct = new OracleCommand("actualizar_usu", conexion);
+                    string estatus = (cbxEstatusUs.Text == "ACTIVO") ? "A" : "I";
                     comandoAct.CommandType = System.Data.CommandType.StoredProcedure;
                     comandoAct.Parameters.Add("nombre", OracleType.VarChar).Value = cbxNomUsu.Text;
                     comandoAct.Parameters.Add("contra", OracleType.VarChar).Value = txtContUsu.Text;
                     comandoAct.Parameters.Add("correo", OracleType.VarChar).Value = txtCorreoUsu.Text;
-                    comandoAct.Parameters.Add("id_roles", OracleType.VarChar).Value = Convert.ToInt32(cbxRolUsuarios.Text);
-                    comandoAct.Parameters.Add("estatus", OracleType.VarChar).Value = cbxEstatusUs.Text;
+                    comandoAct.Parameters.Add("id_roles", OracleType.VarChar).Value = ObtenerIdRolSeleccionado();
+                    comandoAct.Parameters.Add("estatus", OracleType.VarChar).Value = estatus;
                     comandoAct.ExecuteNonQuery();
                     MessageBox.Show("Usuario Actualizado");
                     LlenarDatosUsuarios();
                     cbxNomUsu.Items.Add(cbxNomUsu.Text);
 
-                }
-                else
-                {
-                    MessageBox.Show("Otro Usuario tiene ese nombre");
-                }
+                
+                                
+                
                 }
             catch (Exception)
             {
                 MessageBox.Show("Algo Fallo");
             }
             conexion.Close();
+        }
+
+        /*private int ObtenerIdRolSeleccionado()
+        {
+            KeyValuePair<int,string> seleccion = (KeyValuePair<int, string>)cbxRolUsuarios.SelectedItem;
+            return seleccion.Key;
+        }*/
+
+        private int ObtenerIdRolSeleccionado()
+        {
+            string descripcionSeleccionada = cbxRolUsuarios.SelectedItem.ToString();
+
+            // consulta para obtener el id con la descripcion
+            OracleCommand comandoIdRol = new OracleCommand("SELECT id_roles FROM roles WHERE descripcion = :descripcion", conexion);
+            comandoIdRol.Parameters.Add("descripcion", OracleType.VarChar).Value = descripcionSeleccionada;
+            object result = comandoIdRol.ExecuteScalar();
+
+            // Verifica si el resultado es nulo
+            if (result != null)
+            {
+               
+                return Convert.ToInt32(result);
+            }
+            else
+            {
+             
+                throw new Exception("No se encontró un ID correspondiente a la descripción seleccionada");
+            }
+        }
+
+
+
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Menu menu = new Menu();
+            menu.Show();
+            this.Close();
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked == true)
+            {
+                if (txtContUsu.PasswordChar == '*')
+                {
+                    txtContUsu.PasswordChar = '\0';
+                }
+            }
+            else
+            {
+                txtContUsu.PasswordChar = '*';
+            }
         }
     }
 }

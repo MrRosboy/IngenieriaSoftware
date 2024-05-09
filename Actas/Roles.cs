@@ -35,9 +35,10 @@ namespace Actas
 
                     conexion.Open();
                     OracleCommand comandoCrear = new OracleCommand("insertar_roles", conexion);
+                    string estatus = (cbxEstRoles.Text == "ACTIVO") ? "A" : "I";
                     comandoCrear.CommandType = System.Data.CommandType.StoredProcedure;
                     comandoCrear.Parameters.Add("descripcion", OracleType.VarChar).Value = cbxDescRoles.Text;
-                    comandoCrear.Parameters.Add("estatus", OracleType.VarChar).Value = cbxEstRoles.Text;
+                    comandoCrear.Parameters.Add("estatus", OracleType.VarChar).Value = estatus;
                     comandoCrear.ExecuteNonQuery();
                     MessageBox.Show("Rol Creado");
                     llenarDataRoles();
@@ -76,7 +77,9 @@ namespace Actas
 
             llenarDataRoles();
 
-            
+            cbxEstRoles.DropDownStyle = ComboBoxStyle.DropDownList;
+
+
         }
 
         private void btnActuRoles_Click(object sender, EventArgs e)
@@ -85,9 +88,10 @@ namespace Actas
             {
                 conexion.Open() ;
                 OracleCommand comandoAct = new OracleCommand("actualizar_roles", conexion);
+                string estatus = (cbxEstRoles.Text == "ACTIVO") ? "A" : "I";
                 comandoAct.CommandType = System.Data.CommandType.StoredProcedure;
                 comandoAct.Parameters.Add("descripcion", OracleType.VarChar).Value = cbxDescRoles.Text;
-                comandoAct.Parameters.Add("estatus", OracleType.VarChar).Value = cbxEstRoles.Text;
+                comandoAct.Parameters.Add("estatus", OracleType.VarChar).Value = estatus;
                 comandoAct.ExecuteNonQuery();
                 MessageBox.Show("Rol Actualizado");
                 llenarDataRoles();
@@ -104,21 +108,19 @@ namespace Actas
         {
             try
             {
-                conexion.Open();    
-                OracleCommand comandoElim = new OracleCommand("eliminar_roles", conexion);
+                conexion.Open();
+                OracleCommand comandoElim = new OracleCommand("eliminar_rol2", conexion);
                 comandoElim.CommandType = System.Data.CommandType.StoredProcedure;
-                comandoElim.Parameters.Add("descripcion", OracleType.VarChar).Value= cbxDescRoles.Text;
-                comandoElim.ExecuteNonQuery ();
-                MessageBox.Show("Rol Eliminado");
+                comandoElim.Parameters.Add("descripcion", OracleType.VarChar).Value = cbxDescRoles.Text;
+                comandoElim.ExecuteNonQuery();
+                MessageBox.Show("Rol Eliminado o desactivado según corresponda");
                 llenarDataRoles();
-
             }
-            catch(Exception) 
+            catch (Exception)
             {
-                MessageBox.Show("Algo Fallo");
-
+                MessageBox.Show("Algo falló");
             }
-           conexion.Close ();
+            conexion.Close();
 
         }
         private bool CamposEstanLlenos()
@@ -159,6 +161,13 @@ namespace Actas
             cbxDescRoles.Text = "";
             cbxEstRoles.Text = "";
             
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Menu menu = new Menu();
+            menu.Show();
+            this.Close();
         }
     }
 }

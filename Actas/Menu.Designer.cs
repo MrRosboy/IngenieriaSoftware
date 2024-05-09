@@ -129,6 +129,7 @@
             this.btnComPro.Size = new System.Drawing.Size(146, 136);
             this.btnComPro.TabIndex = 9;
             this.btnComPro.UseVisualStyleBackColor = true;
+            this.btnComPro.Click += new System.EventHandler(this.btnComPro_Click);
             // 
             // label1
             // 
@@ -257,7 +258,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1153, 626);
+            this.ClientSize = new System.Drawing.Size(1157, 628);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
